@@ -1,1216 +1,19 @@
-Here is a **simple program for Experiment 2: Develop Responsive Layouts Using Flexbox/Grid**, suitable for your Engineering Lab Practical record.
-
-## 3. Program
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Responsive Web Design</title>
-
-    <style>
-        body {
-            font-family: Arial;
-            margin: 0;
-            background-color: lightgray;
-        }
-
-        header {
-            background-color: navy;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            background-color: black;
-            padding: 15px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            padding: 20px;
-        }
-
-        .box {
-            background-color: white;
-            padding: 25px;
-            text-align: center;
-            border-radius: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-
-            nav {
-                flex-wrap: wrap;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <header>
-        <h1>Responsive Web Design</h1>
-    </header>
-
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
-    </nav>
-
-    <div class="container">
-        <div class="box">
-            <h2>HTML</h2>
-            <p>HTML provides webpage structure.</p>
-        </div>
-
-        <div class="box">
-            <h2>CSS</h2>
-            <p>CSS provides webpage styling.</p>
-        </div>
-
-        <div class="box">
-            <h2>Flexbox</h2>
-            <p>Flexbox arranges elements.</p>
-        </div>
-
-        <div class="box">
-            <h2>Grid</h2>
-            <p>Grid creates rows and columns.</p>
-        </div>
-
-        <div class="box">
-            <h2>Responsive Design</h2>
-            <p>Adapts to different screen sizes.</p>
-        </div>
-
-        <div class="box">
-            <h2>Web Development</h2>
-            <p>HTML and CSS build web pages.</p>
-        </div>
-    </div>
-
-</body>
-</html>
-```
-
-### 4. Output
-
-* **Desktop:** Displays three cards per row.
-* **Tablet:** Displays two cards per row.
-* **Mobile:** Displays one card per row.
-* The navigation menu uses Flexbox to arrange the links.
-
-### 5. Result
-
-Thus, a responsive web layout was successfully developed using CSS Flexbox and Grid, adapting to desktop, tablet, and mobile screen sizes.
-
-****************************************************************************************************************************************************
-
-
-Yes! You can use your **same HTML registration form with `<form>`, `<table>`, `<tr>`, `<td>`, and `<select>`** and add a little JavaScript for DOM manipulation. You don't need to change your basic HTML structure.
-
-I've kept the program simple for your Engineering Lab Practical.
-
-## Program: Registration Form Using HTML and JavaScript DOM
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Registration Form</title>
-</head>
-<body>
-
-<h2>User Registration</h2>
-
-<form id="myForm">
-    <table>
-        <tr>
-            <td>Name:</td>
-            <td>
-                <input type="text" id="name"
-                placeholder="Enter your name">
-            </td>
-        </tr>
-
-        <tr>
-            <td>Age:</td>
-            <td>
-                <input type="number" id="age"
-                placeholder="Enter your age">
-            </td>
-        </tr>
-
-        <tr>
-            <td>Department:</td>
-            <td>
-                <select id="dept">
-                    <option value="CSE">CSE</option>
-                    <option value="IT">IT</option>
-                    <option value="ECE">ECE</option>
-                </select>
-            </td>
-        </tr>
-
-        <tr>
-            <td></td>
-            <td>
-                <input type="submit" value="Submit">
-            </td>
-        </tr>
-    </table>
-</form>
-
-<p id="result"></p>
-
-<script>
-    document.getElementById("myForm").addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        var name = document.getElementById("name").value;
-        var age = document.getElementById("age").value;
-        var dept = document.getElementById("dept").value;
-        var result = document.getElementById("result");
-
-        if (name == "") {
-            result.textContent = "Please enter your name.";
-            result.style.color = "red";
-        }
-        else if (age == "" || age < 18) {
-            result.textContent = "Age must be 18 or above.";
-            result.style.color = "red";
-        }
-        else {
-            result.textContent = "Welcome " + name +
-            "! Age: " + age + ", Department: " + dept;
-            result.style.color = "green";
-        }
-    });
-</script>
-
-</body>
-</html>
-```
-
-## How DOM Is Used in This Program
-
-You only need to understand these four things for your practical exam:
-
-| JavaScript code      | Purpose                                         |
-| -------------------- | ----------------------------------------------- |
-| `getElementById()`   | Accesses an HTML element using its ID.          |
-| `.value`             | Gets the value entered or selected by the user. |
-| `textContent`        | Displays a message on the web page.             |
-| `style.color`        | Changes the message color.                      |
-| `addEventListener()` | Executes JavaScript when the form is submitted. |
-| `preventDefault()`   | Prevents the form from reloading the page.      |
-
-### Output
-
-**Initially, the form displays:**
-
-```text
-       User Registration
-
-Name:       [Enter your name]
-Age:        [Enter your age]
-Department: [CSE          v]
-
-            [Submit]
-```
-
-**Case 1: Name is empty**
-
-Output in red:
-`Please enter your name.`
-
-**Case 2: Age is below 18**
-
-Output in red:
-`Age must be 18 or above.`
-
-**Case 3: Valid input**
-
-Input:
-
-* Name: Arun
-* Age: 20
-* Department: CSE
-
-Output in green:
-`Welcome Arun! Age: 20, Department: CSE`
-
-### Result
-
-Thus, a registration form was created using HTML form and table elements, and JavaScript DOM manipulation was implemented to validate user inputs and display messages dynamically.
-
----
-
-**Practical exam tip:** Your original HTML form remains almost the same. The main addition is the `<p id="result"></p>` element and the small JavaScript section that validates the inputs and displays the result.
-
-****************************************************************************************************************************************************
-
-
-Here is a **simple and complete AJAX-based web application program** for your Engineering Lab Practical. I've kept the code short and easy to understand, using `XMLHttpRequest()`, `open()`, `send()`, and DOM manipulation.
-
-# 4. AJAX-Based Web Applications
-
-### 1. Aim
-
-To develop an AJAX-based web application that retrieves data from a server asynchronously without reloading the entire web page.
-
-### 2. Algorithm
-
-1. Start the program.
-2. Create an HTML page with a button and a display area.
-3. Create a JavaScript function named `loadData()`.
-4. Create an `XMLHttpRequest` object.
-5. Open a connection to the data source using the `open()` method.
-6. Set the request method as GET.
-7. Send the request using the `send()` method.
-8. Check whether the request is successfully completed.
-9. Retrieve the response data from the server.
-10. Display the data on the web page using DOM manipulation.
-11. If an error occurs, display an error message.
-12. Stop the program.
-
-### 3. Program
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>AJAX Web Application</title>
-</head>
-<body>
-
-    <h2>AJAX Web Application</h2>
-
-    <button onclick="loadData()">Load Data</button>
-
-    <p id="result">Click the button to load data.</p>
-
-    <script>
-        function loadData() {
-
-            var xhttp = new XMLHttpRequest();
-
-            xhttp.onload = function() {
-
-                if (this.status == 200) {
-                    var data = JSON.parse(this.responseText);
-
-                    document.getElementById("result").innerHTML =
-                    "Title: " + data.title + "<br><br>" +
-                    "Body: " + data.body;
-                }
-                else {
-                    document.getElementById("result").innerHTML =
-                    "Error loading data!";
-                }
-            };
-
-            xhttp.open("GET",
-            "https://jsonplaceholder.typicode.com/posts/1", true);
-
-            xhttp.send();
-        }
-    </script>
-
-</body>
-</html>
-```
-
-### 4. Output
-
-**When the program is opened in the browser:**
-
-```text
-       AJAX Web Application
-
-          [ Load Data ]
-
-Click the button to load data.
-```
-
-**After clicking the Load Data button:**
-
-```text
-Title: sunt aut facere repellat
-       provident occaecati
-
-Body: quia et suscipit suscipit
-      recusandae consequuntur expedita
-      et cum reprehenderit molestiae
-      ut ut quas totam nostrum rerum
-      est autem sunt rem eveniet architecto
-```
-
-**Note:** An internet connection is required because the program retrieves data from an online server (JSONPlaceholder).
-
-### 5. Result
-
-Thus, an AJAX-based web application was successfully developed using JavaScript and XMLHttpRequest. Data was retrieved asynchronously from the server and displayed on the web page without reloading the entire page.
-
----
-
-### Important Functions – Easy Explanation for Viva
-
-| Function / Property | Use                                                    |
-| ------------------- | ------------------------------------------------------ |
-| `XMLHttpRequest()`  | Creates an object to send requests to the server.      |
-| `open()`            | Opens a connection to the server.                      |
-| `send()`            | Sends the request to the server.                       |
-| `GET`               | Retrieves data from the server.                        |
-| `onload`            | Executes when the response is received.                |
-| `status`            | Checks the server response status (200 means success). |
-| `responseText`      | Gets the data received from the server.                |
-| `JSON.parse()`      | Converts JSON text into a JavaScript object.           |
-| `getElementById()`  | Selects an HTML element.                               |
-| `innerHTML`         | Displays the retrieved data on the webpage.            |
-
-**Easy viva answer:**
-
-**What is AJAX?**
-
-AJAX stands for Asynchronous JavaScript and XML. It is used to retrieve data from a server without reloading the entire web page.
-
-**What is the use of AJAX?**
-
-It helps to update webpage content dynamically without refreshing the page.
-
-****************************************************************************************************************************************************
-
-Here is a **simple and complete Node.js program** for your Engineering Lab Practical record. I've kept the code similar to your previous programs so that it is easy to write and remember.
-
-# 5. Server-Side Applications Using Node.js
-
-### 1. Aim
-
-To develop a simple server-side application using Node.js that creates a web server and responds to client requests.
-
-### 2. Algorithm
-
-1. Start the program.
-2. Install Node.js in the system.
-3. Create a JavaScript file named `server.js`.
-4. Import the built-in HTTP module.
-5. Create a server using the `http.createServer()` method.
-6. Receive the client request and generate a response.
-7. Set the response status code and content type.
-8. Display a welcome message to the client.
-9. Assign port number 3000 to the server.
-10. Start the server using the `listen()` method.
-11. Open a web browser and enter `http://localhost:3000`.
-12. Display the server response.
-13. Stop the program.
-
-### 3. Program
-
-```javascript
-// Import HTTP module
-const http = require("http");
-
-// Create a server
-const server = http.createServer((req, res) => {
-
-    // Set response header
-    res.writeHead(200, {
-        "Content-Type": "text/html"
-    });
-
-    // Send response
-    res.end(`
-        <h1>Welcome to Node.js Server</h1>
-        <p>This is a server-side application.</p>
-    `);
-
-});
-
-// Start the server
-server.listen(3000, () => {
-    console.log("Server running at http://localhost:3000");
-});
-```
-
-### 4. Execution
-
-**Step 1:** Install Node.js in your system.
-
-**Step 2:** Open Notepad or VS Code and type the program.
-
-**Step 3:** Save the file as `server.js`.
-
-**Step 4:** Open the terminal and execute the following command:
-
-```bash
-node server.js
-```
-
-**Step 5:** Open your web browser and enter:
-
-`http://localhost:3000`
-
-### 5. Output
-
-**Terminal Output:**
-
-```text
-Server running at http://localhost:3000
-```
-
-**Browser Output:**
-
-```text
-+--------------------------------------+
-|                                      |
-|     Welcome to Node.js Server        |
-|                                      |
-|     This is a server-side            |
-|     application.                     |
-|                                      |
-+--------------------------------------+
-```
-
-### 6. Result
-
-Thus, a server-side application was successfully developed using Node.js. The Node.js HTTP server accepts client requests and sends an HTML response to the browser.
-
----
-
-### Important Functions – Viva Questions
-
-| Function              | Purpose                                       |
-| --------------------- | --------------------------------------------- |
-| `require("http")`     | Imports the HTTP module.                      |
-| `http.createServer()` | Creates an HTTP server.                       |
-| `writeHead()`         | Sets the response status and header.          |
-| `end()`               | Sends the response to the client and ends it. |
-| `listen()`            | Starts the server on a specified port.        |
-| `3000`                | Port number used by the server.               |
-
-**Important Viva Questions:**
-
-**1. What is Node.js?**
-
-Node.js is a JavaScript runtime environment used to execute JavaScript outside the web browser.
-
-**2. What is the use of the HTTP module?**
-
-It is used to create an HTTP server and handle client requests and responses.
-
-**3. What is a server?**
-
-A server is a computer or program that receives requests from clients and sends responses.
-
-**4. What is the use of port 3000?**
-
-It is the port number through which the browser communicates with our Node.js server.
-
-**5. What is `localhost`?**
-
-Localhost refers to the current computer on which the server is running.
-
-****************************************************************************************************************************************************
-
-Here is a **simple and complete program for Experiment 6: REST API Development and Database Connectivity**, suitable for your Engineering Lab Practical record.
-
-I've simplified the code while keeping all four CRUD operations (Create, Read, Update, Delete). It uses Node.js, Express.js, and MySQL.
-
-# 6. REST API Development and Database Connectivity
-
-### 1. Aim
-
-To develop a REST API using Node.js and Express.js and establish connectivity with a MySQL database to perform CRUD operations such as Create, Read, Update, and Delete.
-
-### 2. Algorithm
-
-1. Start the program.
-2. Install Node.js and create a new project.
-3. Install the required packages: Express, MySQL2, and CORS.
-4. Import the required modules.
-5. Create an Express application.
-6. Connect to the MySQL database.
-7. Create REST API routes:
-
-   * GET – Retrieve student details.
-   * POST – Insert new student details.
-   * PUT – Update student details.
-   * DELETE – Delete student details.
-8. Receive client requests through API endpoints.
-9. Execute the corresponding SQL queries.
-10. Send the database result as a JSON response.
-11. Start the server on port 3000.
-12. Test the API using Postman.
-13. Stop the program.
-
-### 3. Program
-
-**Step 1: Install Required Packages**
-
-Open the terminal and execute:
-
-```bash
-npm init -y
-npm install express mysql2 cors
-```
-
-**Step 2: Create Database and Table**
-
-Open MySQL and execute:
-
-```sql
-CREATE DATABASE studentdb;
-
-USE studentdb;
-
-CREATE TABLE students (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
-    email VARCHAR(100),
-    department VARCHAR(100)
-);
-```
-
-**Step 3: Create `server.js`**
-
-The following is the complete simplified program.
-
-```javascript
-// Import modules
-const express = require("express");
-const mysql = require("mysql2");
-const cors = require("cors");
-
-// Create Express app
-const app = express();
-
-app.use(express.json());
-app.use(cors());
-
-// Connect to MySQL
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "studentdb"
-});
-
-// Check database connection
-db.connect((err) => {
-    if (err) {
-        console.log("Database connection failed");
-    } else {
-        console.log("Connected to MySQL database");
-    }
-});
-
-// GET - Display students
-app.get("/students", (req, res) => {
-    db.query("SELECT * FROM students", (err, result) => {
-        if (err) {
-            res.send(err);
-        } else {
-            res.json(result);
-        }
-    });
-});
-
-// POST - Add student
-app.post("/students", (req, res) => {
-    const { name, email, department } = req.body;
-
-    db.query(
-        "INSERT INTO students (name, email, department) VALUES (?, ?, ?)",
-        [name, email, department],
-        (err, result) => {
-            if (err) {
-                res.send(err);
-            } else {
-                res.json({ message: "Student added successfully" });
-            }
-        }
-    );
-});
-
-// PUT - Update student
-app.put("/students/:id", (req, res) => {
-    const { name, email, department } = req.body;
-    const id = req.params.id;
-
-    db.query(
-        "UPDATE students SET name=?, email=?, department=? WHERE id=?",
-        [name, email, department, id],
-        (err, result) => {
-            if (err) {
-                res.send(err);
-            } else {
-                res.json({ message: "Student updated successfully" });
-            }
-        }
-    );
-});
-
-// DELETE - Delete student
-app.delete("/students/:id", (req, res) => {
-    const id = req.params.id;
-
-    db.query(
-        "DELETE FROM students WHERE id=?",
-        [id],
-        (err, result) => {
-            if (err) {
-                res.send(err);
-            } else {
-                res.json({ message: "Student deleted successfully" });
-            }
-        }
-    );
-});
-
-// Start server
-app.listen(3000, () => {
-    console.log("Server running at http://localhost:3000");
-});
-```
-
-### 4. Execution
-
-**Step 1:** Save the program as `server.js`.
-
-**Step 2:** Start the MySQL server.
-
-**Step 3:** Open the terminal and execute:
-
-```bash
-node server.js
-```
-
-**Step 4:** The following message will appear:
-
-```text
-Connected to MySQL database
-Server running at http://localhost:3000
-```
-
-### 5. Output
-
-Test the following REST API operations using Postman.
-
-**1. GET – Retrieve Student Records**
-
-Request:
-
-```text
-GET http://localhost:3000/students
-```
-
-Output:
-
-```json
-[
-    {
-        "id": 1,
-        "name": "Arun",
-        "email": "arun@gmail.com",
-        "department": "CSE"
-    }
-]
-```
-
-**2. POST – Add a Student**
-
-Request:
-
-```text
-POST http://localhost:3000/students
-```
-
-Input (Body → raw → JSON):
-
-```json
-{
-    "name": "Kumar",
-    "email": "kumar@gmail.com",
-    "department": "IT"
-}
-```
-
-Output:
-
-```json
-{
-    "message": "Student added successfully"
-}
-```
-
-**3. PUT – Update Student Details**
-
-Request:
-
-```text
-PUT http://localhost:3000/students/1
-```
-
-Input:
-
-```json
-{
-    "name": "Arun Kumar",
-    "email": "arun@gmail.com",
-    "department": "CSE"
-}
-```
-
-Output:
-
-```json
-{
-    "message": "Student updated successfully"
-}
-```
-
-**4. DELETE – Delete Student**
-
-Request:
-
-```text
-DELETE http://localhost:3000/students/1
-```
-
-Output:
-
-```json
-{
-    "message": "Student deleted successfully"
-}
-```
-
-### 6. Result
-
-Thus, a REST API application was successfully developed using Node.js and Express.js with MySQL database connectivity. The application successfully performs CRUD operations (Create, Read, Update, and Delete) on student records.
-
----
-
-## Important Functions – Viva Questions
-
-| Function                   | Purpose                               |
-| -------------------------- | ------------------------------------- |
-| `express()`                | Creates an Express application.       |
-| `mysql.createConnection()` | Connects to the MySQL database.       |
-| `express.json()`           | Reads JSON data from client requests. |
-| `app.get()`                | Retrieves student records.            |
-| `app.post()`               | Inserts new student records.          |
-| `app.put()`                | Updates existing student records.     |
-| `app.delete()`             | Deletes student records.              |
-| `db.query()`               | Executes SQL queries.                 |
-| `app.listen()`             | Starts the server.                    |
-| `res.json()`               | Sends the response in JSON format.    |
-
-### Important Viva Questions
-
-**1. What is REST API?**
-
-REST API is used for communication between client and server through HTTP methods.
-
-**2. What is CRUD?**
-
-CRUD stands for:
-
-* C – Create
-* R – Read
-* U – Update
-* D – Delete
-
-**3. What is Express.js?**
-
-Express.js is a Node.js framework used to develop web applications and REST APIs.
-
-**4. What is MySQL?**
-
-MySQL is a relational database management system used to store and manage data.
-
-**5. What is the use of Postman?**
-
-Postman is a tool used to test REST API requests such as GET, POST, PUT, and DELETE.
-
-**6. What is JSON?**
-
-JSON stands for JavaScript Object Notation. It is used to exchange data between client and server.
-
----
-
-**Important practical note:**
-
-* Make sure MySQL is running before executing `node server.js`.
-* If your MySQL root account has a password, replace the empty `password: ""` with your actual MySQL password.
-* Use Postman to test all four operations. Opening `localhost:3000/students` in a browser is sufficient to test the GET operation.
-
-**Exam tip:** Remember these four methods: `GET = Read`, `POST = Create`, `PUT = Update`, and `DELETE = Delete`. These are the most important parts of this experiment.
-
-
-****************************************************************************************************************************************************
-I extracted **Program 7: Mini Project – Full-Stack Web Application** from your uploaded Web Technology Lab Manual.
-
-I've simplified it for your Engineering Lab Practical. This program creates a **Student Management System** using HTML, CSS, JavaScript, Node.js, Express.js, and MySQL.
-
-# 7. Mini Project: Full-Stack Web Application
-
-## 1. Aim
-
-To design and develop a full-stack web application using HTML, CSS, JavaScript, Node.js, Express.js, and MySQL to add and display student details.
-
-## 2. Algorithm
-
-1. Start the program.
-2. Create a database named `studentdb`.
-3. Create a table named `students` to store student details.
-4. Design the frontend using HTML and CSS.
-5. Create input fields for Name, Email, and Department.
-6. Develop the backend using Node.js and Express.js.
-7. Connect the backend to the MySQL database.
-8. Create a POST API to add student details.
-9. Create a GET API to retrieve student details.
-10. Connect the frontend and backend using the `fetch()` method.
-11. Display student details dynamically on the webpage.
-12. Run the application and test it.
-13. Stop the program.
-
-## 3. Program
-
-This program uses **three files**.
-
-### Step 1: Create Database
-
-Execute the following SQL commands in MySQL.
-
-```sql
-CREATE DATABASE studentdb;
-
-USE studentdb;
-
-CREATE TABLE students (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
-    email VARCHAR(100),
-    department VARCHAR(100)
-);
-```
-
-### Step 2: Install Required Packages
-
-Open the terminal and execute:
-
-```bash
-npm init -y
-npm install express mysql2 cors
-```
-
-### Step 3: Backend Program – `server.js`
-
-```javascript
-// Import modules
-const express = require("express");
-const mysql = require("mysql2");
-const cors = require("cors");
-
-const app = express();
-
-app.use(express.json());
-app.use(cors());
-
-// Connect to database
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "studentdb"
-});
-
-db.connect((err) => {
-    if (err) {
-        console.log("Database connection failed");
-    } else {
-        console.log("Database connected successfully");
-    }
-});
-
-// Add student
-app.post("/students", (req, res) => {
-    const { name, email, department } = req.body;
-
-    const sql = "INSERT INTO students (name, email, department) VALUES (?, ?, ?)";
-
-    db.query(sql, [name, email, department], (err) => {
-        if (err) {
-            res.send(err);
-        } else {
-            res.json({ message: "Student added successfully" });
-        }
-    });
-});
-
-// Display students
-app.get("/students", (req, res) => {
-    db.query("SELECT * FROM students", (err, result) => {
-        if (err) {
-            res.send(err);
-        } else {
-            res.json(result);
-        }
-    });
-});
-
-// Start server
-app.listen(3000, () => {
-    console.log("Server running at http://localhost:3000");
-});
-```
-
-### Step 4: Frontend Program – `index.html`
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Student Management System</title>
-
-    <style>
-        body {
-            font-family: Arial;
-            background-color: lightgray;
-            text-align: center;
-        }
-
-        .container {
-            background-color: white;
-            width: 350px;
-            margin: 50px auto;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        input {
-            padding: 10px;
-            margin: 8px;
-            width: 80%;
-        }
-
-        button {
-            padding: 10px;
-            background-color: green;
-            color: white;
-            border: none;
-        }
-    </style>
-</head>
-
-<body>
-
-<div class="container">
-
-    <h2>Student Management System</h2>
-
-    <input type="text" id="name" placeholder="Enter Name"><br>
-
-    <input type="email" id="email" placeholder="Enter Email"><br>
-
-    <input type="text" id="department" placeholder="Enter Department"><br>
-
-    <button onclick="addStudent()">Add Student</button>
-
-    <h3>Student List</h3>
-
-    <ul id="studentList"></ul>
-
-</div>
-
-<script>
-
-// Add student
-function addStudent() {
-
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var department = document.getElementById("department").value;
-
-    fetch("http://localhost:3000/students", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            name: name,
-            email: email,
-            department: department
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert(data.message);
-        loadStudents();
-    });
-
-}
-
-// Display students
-function loadStudents() {
-
-    fetch("http://localhost:3000/students")
-    .then(response => response.json())
-    .then(data => {
-
-        var list = document.getElementById("studentList");
-
-        list.innerHTML = "";
-
-        data.forEach(student => {
-            list.innerHTML += "<li>" +
-                student.name + " - " +
-                student.email + " - " +
-                student.department + "</li>";
-        });
-
-    });
-
-}
-
-</script>
-
-</body>
-</html>
-```
-
-## 4. Execution
-
-Follow these steps to execute the program.
-
-**Step 1:** Start your MySQL server.
-
-**Step 2:** Create the database and table using the SQL commands given above.
-
-**Step 3:** Save the backend code as `server.js`.
-
-**Step 4:** Save the frontend code as `index.html` in the same project folder.
-
-**Step 5:** Open the terminal and execute:
-
-```bash
-node server.js
-```
-
-**Step 6:** The following message appears:
-
-```text
-Database connected successfully
-Server running at http://localhost:3000
-```
-
-**Step 7:** Open `index.html` in your browser.
-
-**Step 8:** Enter student details and click the **Add Student** button.
-
-## 5. Output
-
-### Initial Web Page
-
-```text
-+----------------------------------+
-|                                  |
-|     Student Management System    |
-|                                  |
-|  [ Enter Name                 ]  |
-|                                  |
-|  [ Enter Email                ]  |
-|                                  |
-|  [ Enter Department           ]  |
-|                                  |
-|         [ Add Student ]          |
-|                                  |
-|          Student List            |
-|                                  |
-+----------------------------------+
-```
-
-### Input
-
-```text
-Name: Arun
-Email: arun@gmail.com
-Department: CSE
-```
-
-### Output
-
-```text
-Student added successfully!
-
-Student List
-
-Arun - arun@gmail.com - CSE
-```
-
-The student details are stored in the MySQL database and displayed on the webpage.
-
-## 6. Result
-
-Thus, a full-stack web application was successfully developed using HTML, CSS, JavaScript, Node.js, Express.js, and MySQL. Student details were added to the database and retrieved dynamically on the webpage.
-
----
-
-## Important Viva Questions
-
-| Question                          | Answer                                                                        |
-| --------------------------------- | ----------------------------------------------------------------------------- |
-| What is a full-stack application? | An application that contains frontend, backend, and database.                 |
-| What is frontend?                 | The user interface of a web application.                                      |
-| What is backend?                  | The server-side part of an application.                                       |
-| What is MySQL?                    | A database used to store data.                                                |
-| What is Express.js?               | A framework used with Node.js to create servers and APIs.                     |
-| What is `fetch()`?                | It is used to send requests and receive data from a server.                   |
-| What is `JSON.stringify()`?       | It converts JavaScript objects into JSON strings.                             |
-| What is `JSON()`?                 | It parses JSON response data into JavaScript objects using `response.json()`. |
-
-### Important Note for Your Practical
-
-This is a simplified version of the manual's seventh program.
-
-* **Frontend:** HTML, CSS, JavaScript.
-* **Backend:** Node.js and Express.js.
-* **Database:** MySQL.
-* **POST:** Adds student details.
-* **GET:** Displays student details.
-
-The simplified version includes the two essential operations (Add and Display) rather than all four CRUD operations, making it easier to understand and write in your practical exam.
-
-**One important correction:** In this version, `index.html` is opened directly in the browser, so it works with the CORS middleware enabled.
-
-
-****************************************************************************************************************************************************
-
+[[[[1]]]]
+
+1. Aim
+To design a static web page using HTML and CSS with a header, navigation menu, content boxes, and footer.
+
+2. Algorithm
+Start the program.
+Create an HTML document using HTML tags.
+Add a header with a title and description.
+Create a navigation menu with Home, About, Services, and Contact links.
+Add three content boxes describing HTML, CSS, and Web Design.
+Apply CSS styles for colors, fonts, spacing, and layout.
+Add a footer to the web page.
+Open the HTML file in a web browser and view the output.
+Stop the program.
+3. Program
 
 ### Program:
 
@@ -1349,3 +152,592 @@ footer {
 </html>
 ```
 
+4. Output
+The web page displays:
+A dark header with the title Welcome to My Web Page.
+A navigation bar containing Home, About, Services, and Contact.
+Three content boxes titled HTML, CSS, and Web Design.
+A dark footer displaying © 2026 My Static Web Page.
+A light grey background with white content boxes and shadows.
+
+5. Result
+Thus, a static web page was successfully designed using HTML and CSS with a header, navigation menu, content boxes, and footer.
+
+**************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[[[[2]]]]
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Web Design</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background-color: lightgray;
+        }
+
+        header {
+            background-color: navy;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background-color: black;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .box {
+            background-color: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Responsive Web Design</h1>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="container">
+        <div class="box">
+            <h2>HTML</h2>
+            <p>HTML provides webpage structure.</p>
+        </div>
+
+        <div class="box">
+            <h2>CSS</h2>
+            <p>CSS provides webpage styling.</p>
+        </div>
+
+        <div class="box">
+            <h2>Flexbox</h2>
+            <p>Flexbox arranges elements.</p>
+        </div>
+
+        <div class="box">
+            <h2>Grid</h2>
+            <p>Grid creates rows and columns.</p>
+        </div>
+
+        <div class="box">
+            <h2>Responsive Design</h2>
+            <p>Adapts to different screen sizes.</p>
+        </div>
+
+        <div class="box">
+            <h2>Web Development</h2>
+            <p>HTML and CSS build web pages.</p>
+        </div>
+    </div>
+
+</body>
+</html>
+```
+
+*******************************************************************************************************************************************************************
+*******************************************************************************************************************************************************************
+
+[[[[3]]]]
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body>
+
+<h2>User Registration</h2>
+
+<form id="myForm">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>
+                <input type="text" id="name"
+                placeholder="Enter your name">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Age:</td>
+            <td>
+                <input type="number" id="age"
+                placeholder="Enter your age">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Department:</td>
+            <td>
+                <select id="dept">
+                    <option value="CSE">CSE</option>
+                    <option value="IT">IT</option>
+                    <option value="ECE">ECE</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Submit">
+            </td>
+        </tr>
+    </table>
+</form>
+
+<p id="result"></p>
+
+<script>
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var name = document.getElementById("name").value;
+        var age = document.getElementById("age").value;
+        var dept = document.getElementById("dept").value;
+        var result = document.getElementById("result");
+
+        if (name == "") {
+            result.textContent = "Please enter your name.";
+            result.style.color = "red";
+        }
+        else if (age == "" || age < 18) {
+            result.textContent = "Age must be 18 or above.";
+            result.style.color = "red";
+        }
+        else {
+            result.textContent = "Welcome " + name +
+            "! Age: " + age + ", Department: " + dept;
+            result.style.color = "green";
+        }
+    });
+</script>
+
+</body>
+</html>
+```
+
+*******************************************************************************************************************************************************************
+*******************************************************************************************************************************************************************
+
+[[[[4]]]]
+
+1. Aim
+To develop an AJAX-based web application that retrieves data from a server asynchronously without reloading the entire web page.
+
+2. Algorithm
+Start the program.
+Create an HTML page with a button and a display area.
+Create a JavaScript function named loadData().
+Create an XMLHttpRequest object.
+Open a connection to the data source using the open() method.
+Set the request method as GET.
+Send the request using the send() method.
+Check whether the request is successfully completed.
+Retrieve the response data from the server.
+Display the data on the web page using DOM manipulation.
+If an error occurs, display an error message.
+Stop the program.
+
+Program
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Web Application</title>
+</head>
+<body>
+
+    <h2>AJAX Web Application</h2>
+
+    <button onclick="loadData()">Load Data</button>
+
+    <p id="result">Click the button to load data.</p>
+
+    <script>
+        function loadData() {
+
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onload = function() {
+
+                if (this.status == 200) {
+                    var data = JSON.parse(this.responseText);
+
+                    document.getElementById("result").innerHTML =
+                    "Title: " + data.title + "<br><br>" +
+                    "Body: " + data.body;
+                }
+                else {
+                    document.getElementById("result").innerHTML =
+                    "Error loading data!";
+                }
+            };
+
+            xhttp.open("GET",
+            "https://jsonplaceholder.typicode.com/posts/1", true);
+
+            xhttp.send();
+        }
+    </script>
+
+</body>
+</html>
+```
+
+Output:
+       AJAX Web Application
+
+          [ Load Data ]
+
+Click the button to load data.
+
+After clicking the Load Data button:
+Title: sunt aut facere repellat
+       provident occaecati
+
+Body: quia et suscipit suscipit
+      recusandae consequuntur expedita
+      et cum reprehenderit molestiae
+      ut ut quas totam nostrum rerum
+      est autem sunt rem eveniet architecto
+
+5. Result
+Thus, an AJAX-based web application was successfully developed using JavaScript and XMLHttpRequest. Data was retrieved asynchronously from the server and displayed on the web page without reloading the entire page.
+
+*******************************************************************************************************************************************************************
+*******************************************************************************************************************************************************************
+
+[[[[5]]]]
+
+5. Server-Side Applications Using Node.js
+1. Aim
+To develop a simple server-side application using Node.js that creates a web server and responds to client requests.
+
+2. Algorithm
+Start the program.
+Install Node.js in the system.
+Create a JavaScript file named server.js.
+Import the built-in HTTP module.
+Create a server using the http.createServer() method.
+Receive the client request and generate a response.
+Set the response status code and content type.
+Display a welcome message to the client.
+Assign port number 3000 to the server.
+Start the server using the listen() method.
+Open a web browser and enter http://localhost:3000.
+Display the server response.
+Stop the program.
+
+3. Program
+```javascript
+// Import HTTP module
+const http = require("http");
+
+// Create a server
+const server = http.createServer((req, res) => {
+
+    // Set response header
+    res.writeHead(200, {
+        "Content-Type": "text/html"
+    });
+
+    // Send response
+    res.end(`
+        <h1>Welcome to Node.js Server</h1>
+        <p>This is a server-side application.</p>
+    `);
+
+});
+
+// Start the server
+server.listen(3000, () => {
+    console.log("Server running at http://localhost:3000");
+});
+```
+
+4. Execution
+
+Step 1: Install Node.js in your system.
+Step 2: Open Notepad or VS Code and type the program.
+Step 3: Save the file as server.js.
+Step 4: Open the terminal and execute the following command:
+node server.js
+Step 5: Open your web browser and enter:
+http://localhost:3000
+
+5. Output
+Terminal Output:
+Server running at http://localhost:3000
+
+Browser Output:
++--------------------------------------+
+|                                      |
+|     Welcome to Node.js Server        |
+|                                      |
+|     This is a server-side            |
+|     application.                     |
+|                                      |
++--------------------------------------+
+
+6. Result
+Thus, a server-side application was successfully developed using Node.js. The Node.js HTTP server accepts client requests and sends an HTML response to the browser.
+
+*******************************************************************************************************************************************************************
+*******************************************************************************************************************************************************************
+
+[[[[6]]]]
+
+REST API Development and Database Connectivity
+1. Aim
+To develop a REST API using Node.js and Express.js and establish connectivity with a MySQL database to perform CRUD operations such as Create, Read, Update, and Delete.
+
+2. Algorithm
+Start the program.
+Install Node.js and create a new project.
+Install the required packages: Express, MySQL2, and CORS.
+Import the required modules.
+Create an Express application.
+Connect to the MySQL database.
+Create REST API routes:
+GET – Retrieve student details.
+POST – Insert new student details.
+PUT – Update student details.
+DELETE – Delete student details.
+Receive client requests through API endpoints.
+Execute the corresponding SQL queries.
+Send the database result as a JSON response.
+Start the server on port 3000.
+Test the API using Postman.
+Stop the program.
+
+3. Program
+Step 1: Install Required Packages
+Open the terminal and execute:
+
+npm init -y
+npm install express mysql2 cors
+
+Step 2: Create Database and Table
+Open MySQL and execute:
+CREATE DATABASE studentdb;
+USE studentdb;
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    department VARCHAR(100)
+);
+
+Step 3: Create server.js
+The following is the complete simplified program.
+
+```javascript
+// Import modules
+const express = require("express");
+const mysql = require("mysql2");
+const cors = require("cors");
+
+// Create Express app
+const app = express();
+
+app.use(express.json());
+app.use(cors());
+
+// Connect to MySQL
+const db = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "studentdb"
+});
+
+// Check database connection
+db.connect((err) => {
+    if (err) {
+        console.log("Database connection failed");
+    } else {
+        console.log("Connected to MySQL database");
+    }
+});
+
+// GET - Display students
+app.get("/students", (req, res) => {
+    db.query("SELECT * FROM students", (err, result) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(result);
+        }
+    });
+});
+
+// POST - Add student
+app.post("/students", (req, res) => {
+    const { name, email, department } = req.body;
+
+    db.query(
+        "INSERT INTO students (name, email, department) VALUES (?, ?, ?)",
+        [name, email, department],
+        (err, result) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.json({ message: "Student added successfully" });
+            }
+        }
+    );
+});
+
+// PUT - Update student
+app.put("/students/:id", (req, res) => {
+    const { name, email, department } = req.body;
+    const id = req.params.id;
+
+    db.query(
+        "UPDATE students SET name=?, email=?, department=? WHERE id=?",
+        [name, email, department, id],
+        (err, result) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.json({ message: "Student updated successfully" });
+            }
+        }
+    );
+});
+
+// DELETE - Delete student
+app.delete("/students/:id", (req, res) => {
+    const id = req.params.id;
+
+    db.query(
+        "DELETE FROM students WHERE id=?",
+        [id],
+        (err, result) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.json({ message: "Student deleted successfully" });
+            }
+        }
+    );
+});
+
+// Start server
+app.listen(3000, () => {
+    console.log("Server running at http://localhost:3000");
+});
+```
+4. Execution
+Step 1: Save the program as server.js.
+Step 2: Start the MySQL server.
+Step 3: Open the terminal and execute:
+node server.js
+Step 4: The following message will appear:
+Connected to MySQL database
+Server running at http://localhost:3000
+
+5. Output
+Test the following REST API operations using Postman.
+1. GET – Retrieve Student Records
+Request:
+GET http://localhost:3000/students
+Output:
+[
+    {
+        "id": 1,
+        "name": "Arun",
+        "email": "arun@gmail.com",
+        "department": "CSE"
+    }
+]
+
+2. POST – Add a Student
+Request:
+POST http://localhost:3000/students
+Input (Body → raw → JSON):
+{
+    "name": "Kumar",
+    "email": "kumar@gmail.com",
+    "department": "IT"
+}
+
+Output:
+{
+    "message": "Student added successfully"
+}
+
+3. PUT – Update Student Details
+Request:
+PUT http://localhost:3000/students/1
+Input:
+{
+    "name": "Arun Kumar",
+    "email": "arun@gmail.com",
+    "department": "CSE"
+}
+
+Output:
+{
+    "message": "Student updated successfully"
+}
+
+4. DELETE – Delete Student
+Request:
+DELETE http://localhost:3000/students/1
+Output:
+{
+    "message": "Student deleted successfully"
+}
+
+6. Result
+Thus, a REST API application was successfully developed using Node.js and Express.js with MySQL database connectivity. The application successfully performs CRUD operations (Create, Read, Update, and Delete) on student records.
